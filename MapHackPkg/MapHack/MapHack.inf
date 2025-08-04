@@ -1,0 +1,41 @@
+[Defines]
+    INF_VERSION                     = 0x00010005
+    BASE_NAME                       = MapHack
+    FILE_GUID                       = AD4AF658-C462-4404-8075-F11524FFDA8F
+    MODULE_TYPE                     = UEFI_APPLICATION
+    VERSION_STRING                  = 1.0
+    ENTRY_POINT                     = UefiMain
+
+[Sources]
+    Entry.cpp
+    MapHack.hpp
+
+[Packages]
+    MdePkg/MdePkg.dec
+    ShmurkioPkg/ShmurkioPkg.dec
+    SecurityPkg/SecurityPkg.dec
+    MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+    UefiApplicationEntryPoint
+    UefiLib
+    UefiBootServicesTableLib
+    UefiRuntimeServicesTableLib
+    SerialPortLib
+    BaseMemoryLib
+    SerialLib
+    EntryLib
+    Tpm2CommandLib
+    UtilLib
+    HookLib
+
+[Protocols]
+    gEfiFirmwareVolume2ProtocolGuid
+    gEfiFormBrowser2ProtocolGuid
+
+[Guids]
+    gEfiMemoryTypeInformationGuid
+    gEfiFileInfoGuid
+
+[BuildOptions]
+    MSFT:*_*_X64_CC_FLAGS = /std:c++latest
